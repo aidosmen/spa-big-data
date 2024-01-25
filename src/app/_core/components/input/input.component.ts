@@ -13,7 +13,12 @@ import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
   template: `
     <div class="form-group">
       <label>{{ labelName }}</label>
-      <input #inputRef [formControl]="formControl" (change)="onInputChange()" />
+      <input
+        [type]="type"
+        #inputRef
+        [formControl]="formControl"
+        (change)="onInputChange()"
+      />
     </div>
   `,
   styleUrl: './input.component.scss',
@@ -32,6 +37,7 @@ export class InputComponent {
   @Input() labelName?: string;
   @Input() formControl!: FormControl;
   @Input() max: number = 0;
+  @Input() type: string = 'number';
 
   onChange: any = () => {};
   onTouch: any = () => {};
