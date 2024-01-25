@@ -5,7 +5,9 @@ import { TimerService } from '../_core/services/timer.service';
 
 @Component({
   selector: 'app-timer',
-  templateUrl: './timer.component.html',
+  template: `
+    <app-input labelName="Timer, ms" [formControl]="form"></app-input>
+  `,
   styleUrl: './timer.component.scss',
 })
 export class TimerComponent implements OnInit {

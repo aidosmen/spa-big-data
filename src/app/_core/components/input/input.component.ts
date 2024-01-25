@@ -10,7 +10,12 @@ import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
-  templateUrl: './input.component.html',
+  template: `
+    <div class="form-group">
+      <label>{{ labelName }}</label>
+      <input #inputRef [formControl]="formControl" (change)="onInputChange()" />
+    </div>
+  `,
   styleUrl: './input.component.scss',
   providers: [
     {
