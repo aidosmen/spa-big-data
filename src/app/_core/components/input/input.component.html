@@ -1,4 +1,4 @@
 <div class="form-group">
   <label>{{ labelName }}</label>
-  <input [formControl]="formControl" (change)="onInputChange()" />
+  <input #inputRef [formControl]="formControl" (change)="onInputChange()" />
 </div>

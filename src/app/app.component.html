@@ -6,11 +6,11 @@
       labelName="Array size"
     ></app-input>
     <app-input
-      [formControl]="formControlArrayLength"
+      [formControl]="formAdditionalId"
       labelName="Additional array ids"
       class="lg"
     ></app-input>
   </div>
 
-  <app-data-display [data]="data"></app-data-display>
+  <app-data-display [data]="itemService.items"></app-data-display>
 </div>

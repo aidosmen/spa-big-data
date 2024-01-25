@@ -2,6 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, interval, Observable } from 'rxjs';
+import { ItemsService } from './items.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class TimerService {
   timerInterval$: Observable<number> = this.timerIntervalSubject.asObservable();
   private timerSubscription: any;
 
-  constructor() {}
+  constructor(private itemsService: ItemsService) {}
 
   startTimer(): void {
     this.timerSubscription = interval(
@@ -35,6 +36,6 @@ export class TimerService {
   }
 
   private emitTick(): void {
-    console.log('Tick');
+    this.itemsService.addItem();
   }
 }

@@ -2,7 +2,6 @@
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { v4 as uuidv4 } from 'uuid';
 
 export interface Item {
   id: string;
@@ -20,23 +19,14 @@ export interface Item {
 })
 export class WorkerService {
   private worker: Worker;
+  items: Item[] = [];
 
   constructor() {
     this.worker = new Worker(new URL('./data.worker', import.meta.url));
   }
 
-  postMessage(message: Item): void {
-    this.worker.postMessage(message);
-  }
-
   postMessages(messages: Item[]): void {
-    const messagesWithId = messages.map((item) => ({
-      ...item,
-      id: uuidv4(),
-      int: Math.floor(Math.random() * 1000000) + 1,
-      float: parseFloat((Math.random() + Math.random() * 10).toFixed(18)),
-    }));
-    this.worker.postMessage(messagesWithId);
+    this.worker.postMessage(messages);
   }
 
   receiveMessages(): Observable<Item[]> {

@@ -1,4 +1,11 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  Renderer2,
+  ViewChild,
+  forwardRef,
+} from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -14,11 +21,17 @@ import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class InputComponent {
+  @ViewChild('input', { static: true })
+  inputRef!: ElementRef<HTMLInputElement>;
+
   @Input() labelName?: string;
   @Input() formControl!: FormControl;
+  @Input() max: number = 0;
 
   onChange: any = () => {};
   onTouch: any = () => {};
+
+  constructor(public elementRef: ElementRef, protected renderer: Renderer2) {}
 
   writeValue(value: any): void {
     this.formControl.setValue(value);

@@ -6,7 +6,7 @@
   <div class="col header">child</div>
 </div>
 <!-- {{ data | json }} -->
-<div class="item" *ngFor="let item of data; trackBy: trackItemById">
+<div class="item" *ngFor="let item of data?.slice(-10); trackBy: trackItemById">
   <div class="col id">{{ item.id }}</div>
   <div class="col int">{{ item.int }}</div>
   <div class="col float">{{ item.float }}</div>

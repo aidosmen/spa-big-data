@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 import { TimerService } from '../_core/services/timer.service';
 
 @Component({
@@ -7,12 +8,14 @@ import { TimerService } from '../_core/services/timer.service';
   templateUrl: './timer.component.html',
   styleUrl: './timer.component.scss',
 })
-export class TimerComponent {
+export class TimerComponent implements OnInit {
   form = new FormControl<number>(300);
 
   constructor(private timerService: TimerService) {}
 
-  updateInterval(): void {
-    this.timerService.updateInterval(3);
+  ngOnInit(): void {
+    this.form.valueChanges.pipe(debounceTime(300)).subscribe((value) => {
+      this.timerService.updateInterval(value || 0);
+    });
   }
 }
