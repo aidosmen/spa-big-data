@@ -56,10 +56,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "test:build:production"
+              "buildTarget": "spa-big-data:build:production"
             },
             "development": {
-              "buildTarget": "test:build:development"
+              "buildTarget": "spa-big-data:build:development"
             }
           },
           "defaultConfiguration": "development"
