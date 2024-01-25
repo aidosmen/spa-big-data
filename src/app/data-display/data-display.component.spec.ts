@@ -8,10 +8,10 @@ describe('DataDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DataDisplayComponent]
-    })
-    .compileComponents();
-    
+      imports: [],
+      declarations: [DataDisplayComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DataDisplayComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

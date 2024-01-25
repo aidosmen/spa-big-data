@@ -22,7 +22,7 @@ export class WorkerService {
   items: Item[] = [];
 
   constructor() {
-    this.worker = new Worker(new URL('./data.worker', import.meta.url));
+    this.worker = new Worker(new URL('src/data.worker', import.meta.url));
   }
 
   postMessages(messages: Item[]): void {
