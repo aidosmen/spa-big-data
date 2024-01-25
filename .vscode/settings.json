@@ -1,0 +1,22 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "stylelint.enable": true,
+  "stylelint.validate": ["css", "less", "scss", "sass", "postcss"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": "explicit"
+  },
+  "scss.validate": false,
+  "css.validate": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true
+}

@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="col header">id</div>
+  <div class="col header">int</div>
+  <div class="col header">float</div>
+  <div class="col header">color</div>
+  <div class="col header">child</div>
+</div>
+<!-- {{ data | json }} -->
+<div class="item" *ngFor="let item of data; trackBy: trackItemById">
+  <div class="col id">{{ item.id }}</div>
+  <div class="col int">{{ item.int }}</div>
+  <div class="col float">{{ item.float }}</div>
+  <div class="col color" [style.background]="item.color">{{ item.color }}</div>
+  <div class="col child">
+    <div class="child">
+      <div class="child-el id">
+        <span>id</span>
+        {{ item.child.id }}
+      </div>
+      <div class="child-el color">
+        <span>color</span>
+        <span [style.background]="item.child.color">
+          {{ item.child.color }}</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
